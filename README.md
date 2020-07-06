@@ -1,14 +1,21 @@
-# spacy-flask-python3-named-entities-api
+# Spacy Generic Named Entities Api Built With Flask and Python3
 
-This repository provides a REST API that returns all named entities detected on a given utterance based on desired dataset and language using Flask and Spacy and Python3.
+This repository provides a REST API that returns all named entities detected on a given utterance based on desired dataset and language using Flask and Spacy and Python3. At the moment this API supports the following models and languages (datasets):
+
+* en_core_web_sm
+* en_core_web_md
+* en_core_web_lg
+* pt_core_news_sm
+* pt_core_news_md
+* pt_core_news_lg
 
 # Installation
 
-You can setup your python3 venv environment using all commands provided on run.sh 
+You can setup your python3 venv environment using all commands provided on run.sh to download all dependencies (spacy datasets)
 
 # Usage
 
-## Request
+## POST Request
 
 To obtain all named entities and terms' dependencies on "eu quero marcar uma consulta de cardiologia para o dr. jorge lima na cuf porto"/"I want to schedule a cardiology appointment for dr. jorge lima at cuf porto" you can do it with the following curl request via Postman or Insomnia.
 
@@ -34,7 +41,7 @@ curl --request POST \
 }'
 ```
 
-## Response
+## POST Response
 
 ```
 {
@@ -227,5 +234,23 @@ curl --request POST \
 
 You can find all named entities appended on property *ents*
 
-It's also supported GET requests to visualize all detected named entities on your browser using displacy from Spacy.
+It's also supported GET requests to visualize all detected named entities using displacy from Spacy. You can send desired GET request either via Postman/Insomnia app or directly on your browser. The following GET request allows you to see all named entities detected on "eu quero marcar uma consulta de cardiologia para o dr jorge lima na cuf porto" with model "sm" (small spacy dataset) and with language "pt" (portuguese),
 
+## Get Request
+
+http://127.0.0.1:50002/classify?model=sm&language=pt&utterance=eu%20quero%20marcar%20uma%20consulta%20de%20cardiologia%20para%20o%20dr%20jorge%20lima%20na%20cuf%20porto
+
+## Get Response
+
+The following image depicts the respective result,
+
+![Alt text](example/Spacy-Visualizer.png?raw=true "Spacy Visualizer")
+
+# Documentation and Related Information
+
+* [Go to the Spacy Web Site to see all available models](https://spacy.io/models/)
+* [Go to the Spacy Web Site to see all available visualizers](https://spacy.io/usage/visualizers)
+* [Go to the Spacy Web Site to see all built-in entity types](https://spacy.io/api/annotation#named-entities)
+* [Go to the Flask Web Site to see available documentation regarding Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Get Insomnia app](https://insomnia.rest/)
+* [Get Postman app](https://www.postman.com/)
