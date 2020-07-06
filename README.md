@@ -11,9 +11,24 @@ This repository provides a REST API that returns all named entities detected on 
 
 # Installation
 
-You can setup your python3 venv environment using all commands provided on run.sh to download all dependencies (spacy datasets)
+Application will run on port 50001 by default and it's binded to port 50002 (external request)
+
+## Manually
+
+You can setup your python3 venv environment using all commands provided on run.sh to download all dependencies (spacy datasets).
+Remember that you have to create an .env file to set required env variables.
+
+## Docker
+
+You can setup much faster and easily using docker-compose. Just run the following commands:
+* bash Docker/bash build-image.sh (create docker image based on Dockerfile)
+* docker-compose up -d (instantiate new container using docker image created above and declare all env variables)
+* docker logs spacy-neural-ner -f --tail 200 (to see incoming requests)
+* docker ps (to see container ports binding)
 
 # Usage
+
+You can download both requests at https://www.getpostman.com/collections/24436fd3a52373b5722d
 
 ## POST Request
 
