@@ -1,0 +1,9 @@
+version: '3'
+services:
+    web:
+        image: spacy-flask
+        build: .
+        ports:
+            - "50002:50002"
+        volumes:
+            - .:/app
