@@ -1,0 +1,20 @@
+version: '3'
+services:
+    spacy-neural-ner:
+        image: spacy-flask
+        container_name: spacy-neural-ner
+        restart: unless-stopped
+        ports:
+            - "50002:50001"
+        volumes:
+            - "~/Desktop/spacy-flask-python3-named-entities-api/Docker/app:/app"
+        environment:
+            FLASK_ENV: development
+            FLASK_APP: app.py
+            FLASK_RUN_HOST: localhost
+            FLASK_RUN_PORT: 50001
+            PORTUGUESE_LANG: "pt"
+            ENGLISH_LANG: "en"
+            SMALL: "sm"
+            MEDIUM: "md"
+            LARGE: "lg"
